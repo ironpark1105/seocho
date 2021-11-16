@@ -1,28 +1,31 @@
-// main.js
+/*메인 슬라이더*/
 $(function(){
-  // 2단계 메뉴
-  $('#gnb .depth1 > li').hover(
-    function(){
-      $(this)
-        .find('.depth2')
-        .stop()
-        .slideDown(300);
-    },
-    function(){
-      $(this)
-        .find('.depth2')
-        .stop()
-        .slideUp(300);
-    }
-  );
+    var imgNum = 0;
 
-  // 검색창 열기 버튼
-  $('#main-header .search > a').click(function(){
-    $('#search-popup').show();
-  });
+    setInterval(function(){
+    imgNum++;   
+    if(imgNum > 2) imgNum = 0; 
+     var x = -(imgNum * 100) + '%';
 
-  // 검색창 닫기
-  $('#btn-close').click(function(){
-    $('#search-popup').hide();
-  })
+     $('.slider .sliders')
+     .css('margin-left', x)
+    
+     },5000)
+    
 })
+
+$(function(){
+    $('.header-second-nav > li').hover(
+        function(){
+            $(this).find('.header-second-nav-depth')
+            .stop()
+            .slideDown();
+        },
+        function(){
+            $(this).find('.header-second-nav-depth')
+            .stop()
+            .slideUp();
+        }
+    );
+})
+
